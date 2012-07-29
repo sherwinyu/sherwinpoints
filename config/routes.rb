@@ -1,4 +1,9 @@
 Sherwinpoints::Application.routes.draw do
+
+  resources :poms
+  resources :pom_sets
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

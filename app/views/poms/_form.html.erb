@@ -1,0 +1,17 @@
+<%= form_for(@pom) do |f| %>
+  <% if @pom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pom.errors.count, "error") %> prohibited this pom from being saved:</h2>
+
+      <ul>
+      <% @pom.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
