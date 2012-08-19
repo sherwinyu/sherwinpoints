@@ -9,6 +9,7 @@ class Sherwinpoints.Views.Poms.EditView extends Backbone.View
   update : (e) ->
     e.preventDefault()
     e.stopPropagation()
+    console.log 'view update'
 
     @model.save(null,
       success : (pom) =>
