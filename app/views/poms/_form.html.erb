@@ -11,6 +11,30 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :start %><br />
+    <%= f.datetime_select :start %>
+  </div>
+  <div class="field">
+    <%= f.label :end %><br />
+    <%= f.datetime_select :end %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :realtime %><br />
+    <%= f.check_box :realtime %>
+  </div>
+  <div class="field">
+    <%= f.label :successful %><br />
+    <%= f.check_box :successful %>
+  </div>
+  <div class="field">
+    <%= f.label :pom_set_id %><br />
+    <%= f.number_field :pom_set_id %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120729053252) do
+ActiveRecord::Schema.define(:version => 20120729081208) do
 
   create_table "pom_sets", :force => true do |t|
     t.datetime "planned_start"

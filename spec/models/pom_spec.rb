@@ -1,7 +1,5 @@
 require 'spec_helper'
 
 describe Pom do
-  it "should dance" do
-    true
-  end
+  pending "add some examples to (or delete) #{__FILE__}"
 end

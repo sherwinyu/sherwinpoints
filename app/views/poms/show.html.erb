@@ -1,5 +1,35 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Start:</b>
+  <%= @pom.start %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @pom.end %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @pom.description %>
+</p>
+
+<p>
+  <b>Realtime:</b>
+  <%= @pom.realtime %>
+</p>
+
+<p>
+  <b>Successful:</b>
+  <%= @pom.successful %>
+</p>
+
+<p>
+  <b>Pom set:</b>
+  <%= @pom.pom_set_id %>
+</p>
+
 
 <%= link_to 'Edit', edit_pom_path(@pom) %> |
 <%= link_to 'Back', poms_path %>

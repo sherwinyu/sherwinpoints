@@ -1,3 +1,12 @@
+<div id="poms"></div>
+<script type="text/javascript">
+  $(function() {
+    window.router = new Sherwinpoints.Routers.PomsRouter({poms: <%= @poms.to_json.html_safe -%>});
+    Backbone.history.start();
+  });
+</script>
+
+<br>
 <h1>Listing poms</h1>
 
 <table>
@@ -19,3 +28,7 @@
 <br />
 
 <%= link_to 'New Pom', new_pom_path %>
+
+
+<a href="#" class="button"> New pom </a>
+
