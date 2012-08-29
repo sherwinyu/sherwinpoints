@@ -13,7 +13,7 @@ class UI
       timer.rawTime+=5
 
   updateDisplay: ->
-    @timerDisplay.text timer.rawTime
+    @timerDisplay.text formatTime timer.rawTime
 
   startDisplaying: ->
     @timerDisplay.text timer.rawTime
@@ -24,7 +24,7 @@ class UI
 
 
 
-window.timer = 
+window.timer =
   init: ->
     @timer = {}
     @rawTime =  0
@@ -37,8 +37,8 @@ window.timer =
       @rawTime-=1
       if @rawTime == 0
         do @timeUp
-      console.log "hi"
       console.log @rawTime
+      do ui.updateDisplay
     @timeUp = =>
       console.log "time is up"
       do @clearTimer
@@ -82,5 +82,80 @@ $ ->
   do ui.bindings
   do timer.init
   console.log formatTime(2500, "")
+
+$ ->
+  class Item extends Backbone.Model
+    defaults:
+      part1: 'derp1'
+      part2: 'derp2'
+  class List extends Backbone.Collection
+    model: Item
+
+  class ItemView extends Backbone.View
+    tagName: 'li'
+    initialize: ->
+      _.bindAll @
+      @model.bind 'change',  @render
+      @model.bind 'remove',  @unrender
+
+    render: ->
+      console.log "Rendering Item View", $(@el).html """ 
+      <span>#{@model.get 'part1'} #{@model.get 'part2'}</span>"
+      <button class="swap"> swap! </button>
+      <button class="delete"> delete! </button>
+      """
+      console.log @model.get 'part1'
+      @
+    unrender: =>
+      $(@el).remove()
+
+    swap: ->
+      @model.set
+        part1: @model.get 'part2'
+        part2: @model.get 'part1'
+    derp: ->
+      @model.destroy()
+
+        
+    events: 
+      'click .swap': 'swap'
+      'click .delete': 'derp'
+
+
+
+
+
+  class ListView extends Backbone.View
+    el: $('#test')
+    initialize: ->
+      _.bindAll @
+      @collection =  new List
+      @collection.bind 'add', @appendItem
+      @counter = 0
+      @render()
+    render: ->
+      console.log @el
+      $(@el).append '<button id="button">Add List Item</button>'
+      $(@el).append '<ul></ul>'
+
+    addItem: ->
+      @counter++
+      item = new Item
+      item.set part2: "#{item.get 'part2'} #{@counter}"
+      @collection.add item
+
+    appendItem: (item) ->
+      itemView = new ItemView model: item
+
+
+      $('ul').append  itemView.render().el
+
+    events: 'click #button': 'addItem'
+
+
+  listView = new ListView
+
+
+
 
 
