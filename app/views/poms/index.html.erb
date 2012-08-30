@@ -4,64 +4,67 @@
       window.router = new Sherwinpoints.Routers.PomsRouter({poms: <%= @poms.to_json.html_safe -%>});
       Backbone.history.start();
       });
-    </script>
+</script>
 
 
-    <%= javascript_tag do %>
-      window.poms = <%= raw @poms.to_json %>;
-    <% end %>
+<%= javascript_tag do %>
+  window.poms = <%= raw @poms.to_json %>;
+<% end %>
 
-    <br>
-    <h1>Listing poms</h1>
+<br>
+<h1>Listing poms</h1>
 
-    <table>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-      <% @poms.each do |pom| %>
-        <tr>
-          <td><%= link_to 'Show', pom %></td>
-          <td><%= link_to 'Edit', edit_pom_path(pom) %></td>
-          <td><%= link_to 'Destroy', pom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </table>
+  <% @poms.each do |pom| %>
+    <tr>
+      <td><%= link_to 'Show', pom %></td>
+      <td><%= link_to 'Edit', edit_pom_path(pom) %></td>
+      <td><%= link_to 'Destroy', pom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
 
-    <br />
+<br />
 
-    <%= link_to 'New Pom', new_pom_path %>
-
-
-    <div id="test">
-      test
-    </div>
-    <div id="pomCollection">
-    </div>
-    <script type="text/template" id="pomTempl">
-      hello 
-      <li>{{ part1 }}{{part2 }}<button class="swap"> swap! </button></li>
-    </script>
-    <script type="text/template" id="pomTempl2">
-      <!-- Access template variables with <%= %> -->
-      <label><%=  %></label>
-      <input type="text" id="search_input" />
-      <input type="button" id="search_button" value="Search" />
-    </script>
-
-    <div id="newPom">
-    </div>
+<%= link_to 'New Pom', new_pom_path %>
 
 
+<div id="test">
+  test
+</div>
+<div id="pomCollection">
+</div>
+<script type="text/template" id="testTempl">
+  hello 
+  <li>{{ part1 }}{{part2 }}<button class="swap"> swap! </button></li>
+</script>
+<script type="text/template" id="pomShowTempl">
+  <!-- Access template variables with <%= %> -->
+  <h1> It's a pom! </h1>
+  <label>{{  description  }}</label>
+  <label>{{  start  }}</label>
+  <label>{{  end  }}</label>
+  <input type="text" id="search_input" />
+  <input type="button" id="search_button" value="Search" />
+</script>
 
-    <div>
-      <a id="buttonNewPom" href="#" class="btn btn-large"> New pom </a>
-      <a id="buttonAddMoreTime" href="#" class="btn btn-large"> I need more time </a>
-    </div>
+<div id="newPom">
+</div>
+k
 
-    <div id="timerDisplay"> 
-      <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-    </div>
+
+<div>
+  <a id="buttonNewPom" href="#" class="btn btn-large"> New pom </a>
+  <a id="buttonAddMoreTime" href="#" class="btn btn-large"> I need more time </a>
+</div>
+
+<div id="timerDisplay"> 
+  <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+</div>
 

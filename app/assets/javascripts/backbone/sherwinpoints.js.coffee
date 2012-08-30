@@ -33,11 +33,17 @@ $ ->
 
 
   class SP.Views.PomShowView extends Backbone.View
-    template: _.template( $('#pomTempl').html() )
       #var template = _.template( $("#search_template").html(), variables );
 
+    initialize: ->
+      _.bindAll @
     render: ->
-      $(@el).html(@template)
+      vars = @model.toJSON()
+      console.log @model, vars
+      console.log $('#pomShowTempl').html()
+      template = _.template( $('#pomShowTempl').html(), vars) #, variable: 'pom' )
+      $(@el).html(template)
+      @
 
 
   class SP.Item extends Backbone.Model
@@ -55,17 +61,10 @@ $ ->
       @model.bind 'remove',  @unrender
 
     render: ->
-      console.log "Rendering Item View", 
+      console.log "Rendering Item View", @model
       vars = @model.toJSON()
-      template =  _.template( $('#pomTempl').html(), vars )
+      template =  _.template( $('#testTempl').html(), vars )
       $(@el).html( template) #, {part1: @model.get('part1'), part2: @model.get('part2')})
-      ###
-      """ 
-      <span>#{@model.get 'part1'} #{@model.get 'part2'}</span>"
-      <button class="swap"> swap! </button>
-      <button class="delete"> delete! </button>
-      """
-      ###
       console.log @model.get 'part1'
       @
     unrender: =>
@@ -116,3 +115,5 @@ $ ->
 
 
   listView = new ListView
+  pomView = new SP.Views.PomShowView model: new SP.Models.Pom
+  $('#pomCollection').append(pomView.render().el)
