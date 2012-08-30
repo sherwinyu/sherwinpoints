@@ -17,4 +17,11 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/sherwinpoints
+//= require util
 //= require_tree .
+//
+
+_.templateSettings = {
+  interpolate : /\{\{(.+?)\}\}/g
+};
+
