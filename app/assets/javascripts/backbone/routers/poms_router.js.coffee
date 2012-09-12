@@ -1,27 +1,34 @@
-class Sherwinpoints.Routers.PomsRouter extends Backbone.Router
+class SP.Routers.PomsRouter extends Backbone.Router
   initialize: (options) ->
-    @poms = new Sherwinpoints.Collections.PomsCollection()
+    @poms = new SP.Collections.PomsCollection()
     @poms.reset options.poms
 
   routes:
-    "new"      : "newPom"
+    # "new"      : "newPom"
     "index"    : "index"
-    ":id/edit" : "edit"
+    # ":id/edit" : "edit"
     ":id"      : "show"
     ".*"        : "index"
+    # "*actions" : "defaultRoute"
 
-  newPom: ->
-    @view = new Sherwinpoints.Views.Poms.NewView(collection: @poms)
-    $("#poms").html(@view.render().el)
+  defaultRoute: (actions) ->
+    alert actions
+
 
   index: ->
-    @view = new Sherwinpoints.Views.Poms.IndexView(poms: @poms)
+    @view = new SP.Views.PomsIndexView(@poms)
     $("#poms").html(@view.render().el)
 
   show: (id) ->
     pom = @poms.get(id)
+    console.log 'show id', id
 
-    @view = new Sherwinpoints.Views.Poms.ShowView(model: pom)
+    @view = new SP.Views.PomShowView(model: pom)
+    $('#pomCollection').append(@view.render().el)
+    # $("#poms").html(@view.render().el)
+    #
+  newPom: ->
+    @view = new Sherwinpoints.Views.Poms.NewView(collection: @poms)
     $("#poms").html(@view.render().el)
 
   edit: (id) ->

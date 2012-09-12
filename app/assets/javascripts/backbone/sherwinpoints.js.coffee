@@ -27,8 +27,8 @@ $ ->
       pom_set_id: null
 
 
-  class SP.Collections.PomCollection extends Backbone.Collection
-    model: SP.Models.pom
+  class SP.Collections.PomsCollection extends Backbone.Collection
+    model: SP.Models.Pom
     url: '/poms'
 
 
@@ -45,11 +45,34 @@ $ ->
       $(@el).html(template)
       @
 
+  class SP.Views.PomsIndexView extends Backbone.View
+    template: JST["backbone/templates/poms/index"]
+
+    initialize: (poms) ->
+      @poms = poms
+      # @poms.bind('reset', @addAll)
+      
+    addOne: (pom) ->
+      pomView = new SP.Views.PomShowView(model: pom)
+      $('#pomCollection').append(pomView.render().el)
+
+    addAll: ->
+      @poms.each(@addOne)
+      console.log 'adding all'
+
+    render: =>
+      $(@el).html(@template(poms: @poms.toJSON() ))
+      @addAll()
+
+      return this
+
+
 
   class SP.Item extends Backbone.Model
     defaults:
       part1: 'derp1'
       part2: 'derp2'
+
   class List extends Backbone.Collection
     model: SP.Item
 
@@ -114,6 +137,6 @@ $ ->
     events: 'click #button': 'addItem'
 
 
-  listView = new ListView
-  pomView = new SP.Views.PomShowView model: new SP.Models.Pom
-  $('#pomCollection').append(pomView.render().el)
+    # listView = new ListView
+    # pomView = new SP.Views.PomShowView model: new SP.Models.Pom
+    # $('#pomCollection').append(pomView.render().el)

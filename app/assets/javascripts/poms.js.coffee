@@ -24,7 +24,34 @@ class UI
 
 
 
-window.timer =
+
+class SP.timer
+  constructor: ->
+    @timer = {}
+    @rawTime = 0
+   
+  start: =>
+    @rawTime = 5
+    do @startTimer
+
+  startTimer:  =>
+    @timer = setInterval( @incrementTime, 1000)
+
+  incrementTime: =>
+    @rawTime-=1
+    if @rawTime == 0
+      do @timeUp
+    console.log @rawTime
+    do ui.updateDisplay
+  timeUp: =>
+    console.log "time is up"
+    do @clearTimer
+
+  clearTimer: =>
+    clearInterval @timer
+
+window.timer = new SP.timer
+###
   init: ->
     @timer = {}
     @rawTime =  0
@@ -44,6 +71,7 @@ window.timer =
       do @clearTimer
     @clearTimer = =>
       clearInterval @timer
+      ###
 
 
 
@@ -80,7 +108,6 @@ $ ->
   console.log 'doc ready'
   window.ui = new UI
   do ui.bindings
-  do timer.init
   console.log formatTime(2500, "")
 
 $ ->

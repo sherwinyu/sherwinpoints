@@ -1,7 +1,10 @@
 Sherwinpoints::Application.routes.draw do
 
+  match 'poms/index_old', to: 'poms#index_old'
+
   resources :poms
   resources :pom_sets
+
 
 
   # The priority is based upon order of creation:

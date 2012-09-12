@@ -34,7 +34,7 @@ group :test do
   gem 'faker', '1.0.1'
 end
 
-gem 'jquery-rails', '2.0.0'
+gem 'jquery-rails', '~> 2.0.0'
 gem 'bootstrap-sass', '~> 2.0.3'
 gem 'simple_form'
 gem 'cocoon'
