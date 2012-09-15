@@ -1,7 +1,27 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-#
+
+class SP.Views.PomsMainView extends Backbone.View
+  # el: $('#pomsMainView')
+  initialize: ->
+    _.bindAll @
+    console.log 'PomsMainView el: ', @el
+    # @el = $('#pomsMainView')
+    # @render()
+
+  attributes: -> 
+    { class: 'pmv' }
+
+
+  render: ->
+    console.log 'PomsMainView el: ', @el
+
+    # template =  _.template( $('#testTempl').html(), vars )
+    $(@el).text( "ello" ) #, {part1: @model.get('part1'), part2: @model.get('part2')})
+
+    @
+
 class UI
 
   bindings: ->

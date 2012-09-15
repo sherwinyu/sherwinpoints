@@ -1,0 +1,32 @@
+<script type="text/template" id="pomShowActiveTempl">
+  <a id="buttonAddMoreTime" href="#" class="btn btn-large"> I need more time </a>
+</script>
+
+<script type="text/template" id="pomActiveTempl">
+  <!-- Access template variables with <%= %> -->
+  <h1> Active Pom {{ id }}</h1>
+  <label>{{  description  }}</label>
+  <label>{{  start  }}</label>
+  <label>{{  end  }}</label>
+
+  <div id="timerDisplay"> 
+    <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+  </div>
+  <input type="text" id="search_input" />
+  <input type="button" id="search_button" value="Search" />
+</script>
+
+<script type="text/template" id="pomShowTempl">
+  <!-- Access template variables with <%= %> -->
+  <h1> Pom#{{ id }}</h1>
+  <label>{{  description  }}</label>
+  <label>{{  start  }}</label>
+  <label>{{  end  }}</label>
+  <input type="text" id="search_input" />
+  <input type="button" id="search_button" value="Search" />
+</script>
+
+<script type="text/template" id="pomIndexTempl">
+  <a id="buttonNewPom" href="#" class="btn btn-large"> New pom </a>
+
+</script>

@@ -37,6 +37,8 @@ $ ->
 
     initialize: ->
       _.bindAll @
+      @timer = new SP.timer
+
     render: ->
       vars = @model.toJSON()
       console.log @model, vars
@@ -113,12 +115,13 @@ $ ->
     el: $('#test')
     initialize: ->
       _.bindAll @
+      console.log 'listview el is: ', @el
       @collection =  new List
       @collection.bind 'add', @appendItem
       @counter = 0
       @render()
     render: ->
-      console.log @el
+      console.log 'listview el is: ', @el
       $(@el).append '<button id="button">Add List Item</button>'
       $(@el).append '<ul></ul>'
 
@@ -137,6 +140,13 @@ $ ->
     events: 'click #button': 'addItem'
 
 
-    # listView = new ListView
-    # pomView = new SP.Views.PomShowView model: new SP.Models.Pom
-    # $('#pomCollection').append(pomView.render().el)
+  listView = new ListView
+  pomsMainView = new SP.Views.PomsMainView
+# pomView = new SP.Views.PomShowView model: new SP.Models.Pom
+# $('#pomCollection').append(pomView.render().el)
+  # pomsMainView.render()
+  # console.log pomsMainView.el
+  $('#pomCollection').append(pomsMainView.render().el)
+
+
+ 

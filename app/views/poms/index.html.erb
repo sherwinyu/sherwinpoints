@@ -1,9 +1,7 @@
 <div id="poms"></div>
+<%= render partial: 'backbone_templates' %>
 <script type="text/javascript">
-  $(function() {
-      window.router = new SP.Routers.PomsRouter({poms: <%= @poms.to_json.html_safe -%>});
-      Backbone.history.start();
-      });
+  $(function() { window.router = new SP.Routers.PomsRouter({poms: <%= @poms.to_json.html_safe -%>}); Backbone.history.start(); });
 </script>
 
 
@@ -16,33 +14,13 @@
 <div id="pomCollection">
 </div>
 
-<script type="text/template" id="testTempl">
-  hello 
-  <li>{{ part1 }}{{part2 }}<button class="swap"> swap! </button></li>
-</script>
+<div id="test">
+</div>
+<div id="pomsMainView">
+</div>
 
-<script type="text/template" id="pomShowTempl">
-  <div class="pom"aaaaaaaaaaaa>
-    <!-- Access template variables with <%= %> -->
-    <h1> It's a pom! </h1>
-    <label>{{  description  }}</label>
-    <label>{{  start  }}</label>
-    <label>{{  end  }}</label>
-    <input type="text" id="search_input" />
-    <input type="button" id="search_button" value="Search" />
-  </div>
-</script>
 
 <div id="newPom">
 </div>
 
-
-<div>
-  <a id="buttonNewPom" href="#" class="btn btn-large"> New pom </a>
-  <a id="buttonAddMoreTime" href="#" class="btn btn-large"> I need more time </a>
-</div>
-
-<div id="timerDisplay"> 
-  <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
-</div>
 
