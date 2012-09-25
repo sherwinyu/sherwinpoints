@@ -17,6 +17,7 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require util
+//= require bootstrap
 //= require backbone/sherwinpoints
 //= require_tree .
 //

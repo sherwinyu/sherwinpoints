@@ -1,40 +1,44 @@
-<h1> Pom#<%= id %></h1>
-<label>description: <%= description %></label>
-<label>start: <%= start %></label>
-<label>end: <%= end %></label>
+<h1><a data-toggle="collapse" data-target="#pomBody<%= id %>"> Pom#<%= id %> </a></h1>
 
-<input type="text" id="search_input" />
-<input type="button" id="search_button" value="Search" />
+<div class="pomBody collapse" id="pomBody<%= id %>" >
 
-<p>
-<b>Start:</b>
-<%= start %>
-</p>
+  <label>description: <%= description %></label>
+  <label>start: <%= start %></label>
+  <label>end: <%= end %></label>
 
-<p>
-<b>End:</b>
-<%= end %>
-</p>
+  <input type="text" id="search_input" />
+  <input type="button" id="search_button" value="Search" />
 
-<p>
-<b>Description:</b>
-<%= description %>
-</p>
+  <p>
+  <b>Start:</b>
+  <%= start %>
+  </p>
 
-<p>
-<b>Realtime:</b>
-<%= realtime %>
-</p>
+  <p>
+  <b>End:</b>
+  <%= end %>
+  </p>
 
-<p>
-<b>Successful:</b>
-<%= successful %>
-</p>
+  <p>
+  <b>Description:</b>
+  <%= description %>
+  </p>
 
-<p>
-<b>Pom set:</b>
-<%= pom_set_id %>
-</p>
+  <p>
+  <b>Realtime:</b>
+  <%= realtime %>
+  </p>
+
+  <p>
+  <b>Successful:</b>
+  <%= successful %>
+  </p>
+
+  <p>
+  <b>Pom set:</b>
+  <%= pom_set_id %>
+  </p>
+</div>
 
 
 <a href="#/index">Back</a>
