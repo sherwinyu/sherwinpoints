@@ -3,7 +3,7 @@ SP.Views.Poms ||= {}
 class SP.Views.Poms.IndexView extends Backbone.View
   template: JST["backbone/templates/poms/index"]
 
-  className: 'derp'
+  className: 'indexView'
 
   events: 
     'click derp': 'addOne'

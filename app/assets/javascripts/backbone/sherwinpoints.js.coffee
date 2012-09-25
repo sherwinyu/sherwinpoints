@@ -17,6 +17,13 @@ window.SP  =
   Views: {}
 
 $ ->
+
+  console.log 'doc ready 2'
+  console.log 'doc ready 2', SP.Collections.PomsCollection
+
+  console.log('poms', window.poms);
+  console.log('router', window.router);
+
   ### 
   class SP.Views.PomsIndexView extends Backbone.View
     template: JST["backbone/templates/poms/index"]
@@ -38,7 +45,6 @@ $ ->
       @addAll()
 
       return this
-   ###
 
 
 
@@ -109,12 +115,15 @@ $ ->
 
 
     # listView = new ListView
-  pomsMainView = new SP.Views.PomsMainView
+    # pomsMainView = new SP.Views.PomsMainView
 # pomView = new SP.Views.PomShowView model: new SP.Models.Pom
 # $('#pomCollection').append(pomView.render().el)
   # pomsMainView.render()
   # console.log pomsMainView.el
-  $('#pomCollection').append(pomsMainView.render().el)
+  # $('#pomCollection').append(pomsMainView.render().el)
+  #
+   ###
+
 
 
  

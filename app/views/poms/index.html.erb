@@ -1,16 +1,27 @@
 <%= render partial: 'backbone_templates' %>
 <script type="text/javascript">
-  $(function() { window.router = new SP.Routers.PomsRouter({poms: <%= @poms.to_json.html_safe -%>}); Backbone.history.start(); });
+  $(function() {
+      window.router = new SP.Routers.PomsRouter(
+        {poms: <%= @poms.to_json.html_safe -%>});
+      Backbone.history.start();
+      console.log('router', window.router);
+
+  var indexView = new SP.Views.Poms.IndexView(window.router.poms)
+  $("#indexView").html(indexView.render().el)
+
+
+      });
 </script>
 
 
 <%= javascript_tag do %>
   window.poms = <%= raw @poms.to_json %>;
 <% end %>
+
 <br />
 
 
-<div id="pomCollection">
+<div id="indexView">
 </div>
 
 <div id="pomsMainView">

@@ -130,9 +130,7 @@ $ ->
   do ui.bindings
   console.log formatTime(2500, "")
 
-$ ->
 
 
-
-
-
+  # @view = new SP.Views.Poms.IndexView(window.router.poms)
+  # $("#poms").html(@view.render().el)
