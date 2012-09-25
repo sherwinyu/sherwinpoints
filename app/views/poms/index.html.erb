@@ -1,4 +1,3 @@
-<div id="poms"></div>
 <%= render partial: 'backbone_templates' %>
 <script type="text/javascript">
   $(function() { window.router = new SP.Routers.PomsRouter({poms: <%= @poms.to_json.html_safe -%>}); Backbone.history.start(); });
@@ -14,8 +13,6 @@
 <div id="pomCollection">
 </div>
 
-<div id="test">
-</div>
 <div id="pomsMainView">
 </div>
 
@@ -24,3 +21,4 @@
 </div>
 
 
+<div id="poms"></div>

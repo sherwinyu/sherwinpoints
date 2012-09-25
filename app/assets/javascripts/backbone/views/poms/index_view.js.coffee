@@ -1,20 +1,27 @@
-Sherwinpoints.Views.Poms ||= {}
+SP.Views.Poms ||= {}
 
-class Sherwinpoints.Views.Poms.IndexView extends Backbone.View
+class SP.Views.Poms.IndexView extends Backbone.View
   template: JST["backbone/templates/poms/index"]
 
-  initialize: () ->
-    @options.poms.bind('reset', @addAll)
+  className: 'derp'
+
+  events: 
+    'click derp': 'addOne'
+
+  initialize: (@poms) ->
+    @poms.bind('reset', @addAll)
 
   addAll: () =>
-    @options.poms.each(@addOne)
+    @poms.each(@addOne)
 
   addOne: (pom) =>
-    view = new Sherwinpoints.Views.Poms.PomView({model : pom})
-    @$("tbody").append(view.render().el)
+    console.log 'addOne', pom
+    # pom ||= new SP.Models.Pom
+    view = new SP.Views.Poms.PomView({model : pom})
+    @$("#pomsCollection").append(view.render().el)
 
   render: =>
-    $(@el).html(@template(poms: @options.poms.toJSON() ))
+    $(@el).html(@template(poms: @poms.toJSON() ))
     @addAll()
 
     return this

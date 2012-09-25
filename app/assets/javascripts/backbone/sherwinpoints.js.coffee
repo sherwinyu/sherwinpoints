@@ -4,11 +4,12 @@
 #= require_tree ./views
 #= require_tree ./routers
 
-window.Sherwinpoints =
-  Models: {}
-  Collections: {}
-  Routers: {}
-  Views: {}
+# window.Sherwinpoints =
+  # Models: {}
+  # Collections: {}
+  # Routers: {}
+  # Views: {}
+
 window.SP  =
   Models: {}
   Collections: {}
@@ -16,37 +17,7 @@ window.SP  =
   Views: {}
 
 $ ->
-  class SP.Models.Pom extends Backbone.Model
-    paramRoot: 'pom'
-    defaults:
-      start: new Date().getTime()
-      end: 25.minutes().from_now()
-      description: 'newly created pom!'
-      realtime: false
-      successful: false
-      pom_set_id: null
-
-
-  class SP.Collections.PomsCollection extends Backbone.Collection
-    model: SP.Models.Pom
-    url: '/poms'
-
-
-  class SP.Views.PomShowView extends Backbone.View
-      #var template = _.template( $("#search_template").html(), variables );
-
-    initialize: ->
-      _.bindAll @
-      @timer = new SP.timer
-
-    render: ->
-      vars = @model.toJSON()
-      console.log @model, vars
-      console.log $('#pomShowTempl').html()
-      template = _.template( $('#pomShowTempl').html(), vars) #, variable: 'pom' )
-      $(@el).html(template)
-      @
-
+  ### 
   class SP.Views.PomsIndexView extends Backbone.View
     template: JST["backbone/templates/poms/index"]
 
@@ -67,6 +38,7 @@ $ ->
       @addAll()
 
       return this
+   ###
 
 
 
@@ -107,10 +79,6 @@ $ ->
       'click .swap': 'swap'
       'click .delete': 'delete'
 
-
-
-
-
   class ListView extends Backbone.View
     el: $('#test')
     initialize: ->
@@ -140,7 +108,7 @@ $ ->
     events: 'click #button': 'addItem'
 
 
-  listView = new ListView
+    # listView = new ListView
   pomsMainView = new SP.Views.PomsMainView
 # pomView = new SP.Views.PomShowView model: new SP.Models.Pom
 # $('#pomCollection').append(pomView.render().el)

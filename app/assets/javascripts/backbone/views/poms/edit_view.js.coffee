@@ -1,6 +1,6 @@
-Sherwinpoints.Views.Poms ||= {}
+SP.Views.Poms ||= {}
 
-class Sherwinpoints.Views.Poms.EditView extends Backbone.View
+class SP.Views.Poms.EditView extends Backbone.View
   template : JST["backbone/templates/poms/edit"]
 
   events :

@@ -1,7 +1,7 @@
-Sherwinpoints.Views.Poms ||= {}
+SP.Views.Poms ||= {}
 
-class Sherwinpoints.Views.Poms.PomView extends Backbone.View
-  template: JST["backbone/templates/poms/pom"]
+class SP.Views.Poms.PomView extends Backbone.View
+  template: JST["backbone/templates/poms/show"]
 
   events:
     "click .destroy" : "destroy"
@@ -15,5 +15,6 @@ class Sherwinpoints.Views.Poms.PomView extends Backbone.View
     return false
 
   render: ->
+    console.log "model; ", @model
     $(@el).html(@template(@model.toJSON() ))
     return this

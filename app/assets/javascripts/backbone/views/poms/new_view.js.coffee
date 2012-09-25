@@ -1,6 +1,6 @@
-Sherwinpoints.Views.Poms ||= {}
+SP.Views.Poms ||= {}
 
-class Sherwinpoints.Views.Poms.NewView extends Backbone.View
+class SP.Views.Poms.NewView extends Backbone.View
   template: JST["backbone/templates/poms/new"]
 
   events:
@@ -32,6 +32,6 @@ class Sherwinpoints.Views.Poms.NewView extends Backbone.View
   render: ->
     $(@el).html(@template(@model.toJSON() ))
 
-    this.$("form").backboneLink(@model)
+    # this.$("form").backboneLink(@model)
 
     return this
