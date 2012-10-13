@@ -18,11 +18,9 @@
 //= require backbone_datalink
 //= require util
 //= require bootstrap
-//= require backbone/sherwinpoints
-//= require_tree .
-//
+// require backbone/sherwinpoints
 
-_.templateSettings = {
-  interpolate : /\{\{(.+?)\}\}/g
-};
+//= require handlebars
+//= require ember
+
 

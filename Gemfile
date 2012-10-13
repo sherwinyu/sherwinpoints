@@ -41,6 +41,8 @@ gem 'cocoon'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
 gem 'rails-backbone'
+gem "ember-rails"
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
