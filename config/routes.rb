@@ -1,6 +1,7 @@
 Sherwinpoints::Application.routes.draw do
 
   match 'poms/index_old', to: 'poms#index_old'
+  match 'poms/ember', to: 'poms#ember'
 
   resources :poms
   resources :pom_sets

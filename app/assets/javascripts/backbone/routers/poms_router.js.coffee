@@ -17,6 +17,8 @@ class SP.Routers.PomsRouter extends Backbone.Router
 
 
   index: ->
+    # @view = new SP.Views.Poms.IndexView(@poms)
+    # $("#poms").html(@view.render().el)
 
   show: (id) ->
     pom = @poms.get(id)

@@ -8,6 +8,9 @@ class PomsController < ApplicationController
     end
   end
 
+  def ember
+  end
+
   def index
     @poms = Pom.all
 
